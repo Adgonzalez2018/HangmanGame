@@ -1,0 +1,5 @@
+Packages/Modules Needed:
+Tkinter 
+Random 
+Pygame
+Math
