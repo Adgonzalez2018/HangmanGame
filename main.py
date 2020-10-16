@@ -6,14 +6,11 @@ from tkinter import *
 # global vars
 pygame.init()
 pygame.font.init()
-global e
-global wordItem
+global e, wordItem
 # game vars
 hangman_status = 0
 guessed = []
 wordSet1 = {"VOLUNTEER", "DETECTIVE", "PARTY", "VISUAL", "NOTHING"}
-wordSet2 = {}
-wordSet3 = {}
 # word pos
 WORD_X, WORD_Y = 400, 200
 ENDGAMEWORD_X, ENDGAMEWORD_Y = 325, 150
@@ -61,7 +58,7 @@ def draw():
     pygame.display.update()
 
 
-def drawMenu():
+def draw_menu():
     menuList = ["Hangman!", "Play", "Add", "Exit"]
 
     win.fill(WHITE)
@@ -132,10 +129,11 @@ for i in range(8):
 while run:
     clock.tick(FPS)
     while hangman_status == 0:
-        drawMenu()
+        draw_menu()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                pygame.quit()
                 run = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x_pos, mouse_y_pos = pygame.mouse.get_pos()
