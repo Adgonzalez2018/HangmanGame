@@ -82,6 +82,7 @@ def input_to_text_file():
     s = e.get()
     if s == '':
         label3 = Label(root, text="You added nothing").grid(row=6, column=3)
+        label3.place(x=200, y=300, anchor="center")
     if s != '':
         file1 = open("userInput.txt", "a")
         file1.write(s.upper() + "\n")
@@ -94,6 +95,7 @@ def input_to_text_file():
         wordSet3 = wordSet2.union(wordSet1)
         wordItem = random.sample(wordSet3, k=1)[0]
         label2 = Label(root, text="Your word has been added!").grid(row=6, column=3)
+        label2.place(x=200, y=300, anchor="center")
 
 
 def print_word_bank():
@@ -103,6 +105,9 @@ def print_word_bank():
 
     label4 = Label(root, text=str(wordBank1)).grid(row=7, column=3)
     label5 = Label(root, text=str(wordBank2)).grid(row=8, column=3)
+    #this isn't working
+    label4.place(x=200, y=400, anchor="center")
+    label5.place(x=200, y=450, anchor="center")
 
 
 # actual game/setup display
@@ -154,6 +159,7 @@ while run:
                     root.attributes("-topmost", True)
                     label1 = Label(root, text="Enter your word that you'd like to add:")
                     label1.grid(row=0, column=3)
+                    label1.place(x=200, y=10, anchor="center")
 
                     e = Entry(root, width=25, borderwidth=5)
                     button1 = Button(root, text='Enter', command=input_to_text_file)
@@ -161,8 +167,11 @@ while run:
 
                     button1.grid(row=2, column=3)
                     button2.grid(row=3, column=3)
+                    button1.place(x=200, y=80, anchor="center")
+                    button2.place(x=200, y=100, anchor="center")
 
                     e.grid(row=1, column=3)
+                    e.place(x=200, y=40, anchor="center")
 
                     root.mainloop()
                 elif 500 > mouse_x_pos > 300 and 420 > mouse_y_pos > 350:
