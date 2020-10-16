@@ -81,7 +81,7 @@ def draw_menu():
 def input_to_text_file():
     s = e.get()
     if s == '':
-        label4 = Label(root, text="You added nothing").grid(row=6, column=2)
+        label3 = Label(root, text="You added nothing").grid(row=6, column=3)
     if s != '':
         file1 = open("userInput.txt", "a")
         file1.write(s.upper() + "\n")
@@ -93,11 +93,16 @@ def input_to_text_file():
         file1.close()
         wordSet3 = wordSet2.union(wordSet1)
         wordItem = random.sample(wordSet3, k=1)[0]
-        label3 = Label(root, text="Your word has been added!").grid(row=6, column=2)
+        label2 = Label(root, text="Your word has been added!").grid(row=6, column=3)
 
 
 def print_word_bank():
-    label2 = Label(root, text="brother this don't work").grid(row=7, column=2)
+    wordList3 = list(wordSet3)
+    wordBank1 = wordList3[:len(wordList3)//2]
+    wordBank2 = wordList3[len(wordList3)//2:]
+
+    label4 = Label(root, text=str(wordBank1)).grid(row=7, column=3)
+    label5 = Label(root, text=str(wordBank2)).grid(row=8, column=3)
 
 
 # actual game/setup display
@@ -145,18 +150,19 @@ while run:
                     # tkinter pop
                     root = Tk()
                     root.title('Add Words')
-                    root.geometry("215x200")
+                    root.geometry("400x400")
+                    root.attributes("-topmost", True)
                     label1 = Label(root, text="Enter your word that you'd like to add:")
-                    label1.grid(row=0, column=2)
+                    label1.grid(row=0, column=3)
 
                     e = Entry(root, width=25, borderwidth=5)
                     button1 = Button(root, text='Enter', command=input_to_text_file)
                     button2 = Button(root, text='Show word bank', command=print_word_bank)
 
-                    button1.grid(row=2, column=2)
-                    button2.grid(row=3, column=2)
+                    button1.grid(row=2, column=3)
+                    button2.grid(row=3, column=3)
 
-                    e.grid(row=1, column=2)
+                    e.grid(row=1, column=3)
 
                     root.mainloop()
                 elif 500 > mouse_x_pos > 300 and 420 > mouse_y_pos > 350:
