@@ -7,8 +7,9 @@ Click Exit to pygame.quit()
 # Dependencies
 Hangman game project relies on:
 Tkinter, Random, Pygame, and Math modules
-#
-You can add words without running the python file, you just have to edit the userInput.txt file and add words
+# Adding words
+You can add words without running the python file, you just have to edit the userInput.txt file and type the words in all caps.
+if you want to add words in the game itself, it will add your typed word and make it uppercase itself.
 # Images
 My images were made from a friend of mine who was willing to make them on Paint.net
 
